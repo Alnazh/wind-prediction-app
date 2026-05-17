@@ -1,4 +1,4 @@
-# 💨 WindPred — Prediksi Kecepatan Angin BMKG Jawa Barat
+# 💨 WindPred — Prediksi Kecepatan Angin Jawa Barat
 
 **Tugas UTS Praktikum Kecerdasan Buatan — Semester 4 (Genap) 2025/2026**
 
@@ -10,8 +10,8 @@
 
 | | |
 |---|---|
-| **Nama** | [ Nama Mahasiswa ] |
-| **NIM** | [ NIM ] |
+| **Nama** | Aulia Nazwa Huriah |
+| **NIM** | 301240010 |
 | **Program Studi** | Teknik Informatika |
 | **Mata Kuliah** | Praktikum Kecerdasan Buatan |
 
@@ -57,7 +57,7 @@ Aplikasi ini menggunakan dua sumber data:
 
 ```bash
 # 1. Clone repository
-git clone https://github.com/[username]/windpred.git
+git clone https://github.com/Alnazh/windpred.git
 cd windpred
 
 # 2. Install dependensi
