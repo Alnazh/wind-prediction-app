@@ -17,13 +17,24 @@
 
 ---
 
-## 📊 Dataset
+## 📊 Dataset & Sumber Data
 
-- **Sumber:** Open Data BMKG — [dataonline.bmkg.go.id](https://dataonline.bmkg.go.id)
+Aplikasi ini menggunakan dua sumber data:
+
+### 1. BMKG DataOnline *(data training)*
+- **URL:** [dataonline.bmkg.go.id](https://dataonline.bmkg.go.id)
 - **Stasiun:** Klimatologi Jawa Barat (ID WMO: 96753, 207 mdpl)
 - **Rentang:** Mei 2024 – Mei 2026
-- **Target Variable:** `FF_AVG` (kecepatan angin rata-rata harian, m/s)
-- **Fitur Input:** TN, TX, TAVG, RH_AVG, RR, SS, FF_X, DDD_X, day_of_year, month, FF_AVG_lag1, FF_AVG_lag7, FF_AVG_roll7, time_index
+- **Digunakan untuk:** Training & evaluasi semua model ML
+
+### 2. Open-Meteo API *(data prediksi real-time)*
+- **URL:** [open-meteo.com](https://open-meteo.com)
+- **Endpoint:** `/v1/forecast` (hari ini & masa depan) dan `/v1/archive` berbasis ERA5 (historis)
+- **Digunakan untuk:** Mengisi fitur cuaca otomatis saat prediksi by-date, tanpa perlu input manual
+- **Lisensi:** Gratis untuk penggunaan non-komersial, tidak memerlukan API key
+
+**Target Variable:** `FF_AVG` (kecepatan angin rata-rata harian, m/s)  
+**Fitur Input:** TN, TX, TAVG, RH_AVG, RR, SS, FF_X, DDD_X, day_of_year, month, FF_AVG_lag1, FF_AVG_lag7, FF_AVG_roll7, time_index
 
 ---
 
@@ -108,6 +119,10 @@ windpred/
 
 ---
 
-## 📄 Lisensi Dataset
+## 📄 Lisensi & Atribusi Data
 
-Data bersumber dari **Open Data BMKG** yang tersedia secara bebas untuk keperluan akademik dan penelitian. Lihat: [bmkg.go.id](https://www.bmkg.go.id)
+| Sumber | Lisensi | Keterangan |
+|---|---|---|
+| **BMKG DataOnline** | Open Data Pemerintah | Bebas digunakan untuk keperluan akademik dan penelitian. [bmkg.go.id](https://www.bmkg.go.id) |
+| **Open-Meteo** | [CC BY 4.0](https://creativecommons.org/licenses/by/4.0/) | Data cuaca gratis berbasis ERA5 (Copernicus Climate Change Service). Tidak memerlukan API key untuk penggunaan non-komersial. [open-meteo.com](https://open-meteo.com) |
+| **ERA5 (via Open-Meteo)** | Copernicus Climate Change Service | Reanalysis data dari ECMWF, diakses melalui Open-Meteo API. |
