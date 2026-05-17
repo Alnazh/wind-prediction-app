@@ -1,4 +1,4 @@
-# 💨 WindPred — Prediksi Kecepatan Angin BMKG Jawa Barat
+# 💨 WindPred — Prediksi Kecepatan Angin Jawa Barat
 
 **Tugas UTS Praktikum Kecerdasan Buatan — Semester 4 (Genap) 2025/2026**
 
