@@ -20,24 +20,25 @@
 ## 📊 Dataset
 
 - **Sumber:** Open Data BMKG — [dataonline.bmkg.go.id](https://dataonline.bmkg.go.id)
-- **Stasiun:** Klimatologi Jawa Barat (ID WMO: 96753, 6.50°LS / 106.75°BT, 207 mdpl)
-- **Rentang:** 14 Mei 2024 – 12 Mei 2026
-- **Total Data:** 729 baris observasi harian
-- **Target Variable:** `FF_AVG` (kecepatan angin rata-rata, m/s)
+- **Stasiun:** Klimatologi Jawa Barat (ID WMO: 96753, 207 mdpl)
+- **Rentang:** Mei 2024 – Mei 2026
+- **Target Variable:** `FF_AVG` (kecepatan angin rata-rata harian, m/s)
+- **Fitur Input:** TN, TX, TAVG, RH_AVG, RR, SS, FF_X, DDD_X, day_of_year, month, FF_AVG_lag1, FF_AVG_lag7, FF_AVG_roll7, time_index
 
 ---
 
 ## 🤖 Algoritma & Hasil
 
-| Algoritma | MAE | RMSE | R² |
-|---|---|---|---|
-| Linear Regression | — | — | — |
-| ANN (TensorFlow) | — | — | — |
-| RNN/LSTM | — | — | — |
-| Backpropagation (NumPy) | — | — | — |
-| K-Means Clustering | — | Silhouette: — | — |
+| Algoritma | Tipe | MAE ↓ | RMSE ↓ | R² ↑ | Evaluasi |
+|---|---|---|---|---|---|
+| Linear Regression | Supervised Regression | 0.6724 | 0.8685 | -0.1851 | Perlu Tuning |
+| **ANN (TensorFlow)** ⭐ | Supervised Regression | **0.6065** | **0.7864** | **0.0284** | **Terbaik** |
+| RNN/LSTM | Supervised Sequential | 0.6367 | 0.8318 | -0.0758 | Perlu Tuning |
+| Backpropagation (NumPy) | Supervised Regression | 0.6307 | 0.7895 | 0.0207 | Normal |
+| K-Means Clustering | Unsupervised | — | — | Silhouette: 0.3941 (K=3) | — |
 
-> Isi tabel dengan hasil aktual setelah `python train.py`
+> Model terbaik: **ANN** berdasarkan MAE, RMSE, dan R² tertinggi.  
+> K-Means menghasilkan K=3 optimal (Angin Tenang, Angin Ringan, Angin Sedang) berdasarkan Silhouette Score — data Stasiun Klimatologi Jawa Barat tidak memiliki cluster angin kencang yang signifikan secara statistik.
 
 ---
 
@@ -69,14 +70,27 @@ Aplikasi berjalan di: `http://localhost:5000`
 
 ```
 windpred/
-├── data/               # Dataset BMKG (mentah & preprocessed)
-├── models/             # File model tersimpan (.pkl, .h5, .npz)
-├── notebooks/          # Jupyter Notebook EDA & training
+├── data/
+│   ├── bmkg_merged.csv          # Data mentah hasil merge
+│   ├── bmkg_preprocessed.csv    # Data setelah feature engineering
+│   └── clustered_data.csv       # Hasil K-Means clustering
+├── models/
+│   ├── linear_regression.pkl    # Model Linear Regression
+│   ├── ann_model.keras/.h5      # Model ANN (TensorFlow)
+│   ├── rnn_lstm_model.keras/.h5 # Model RNN/LSTM
+│   ├── backprop_weights.npz     # Bobot Backpropagation manual
+│   ├── kmeans_model.pkl         # Model K-Means
+│   ├── scaler_X.pkl / scaler_y.pkl / scaler_kmeans.pkl
+│   ├── model_metrics.json       # Metrik semua model
+│   ├── kmeans_metrics.json      # Metrik & elbow K-Means
+│   └── lstm_seq_buffer.json     # Buffer sekuens LSTM
+├── notebooks/
+│   └── windpred_eda_training.ipynb
 ├── app/
-│   ├── static/         # CSS, JS, gambar
-│   ├── templates/      # Template HTML Jinja2
-│   └── app.py          # Flask application
-├── train.py            # Script training semua model
+│   ├── static/                  # CSS, JS
+│   ├── templates/               # HTML Jinja2
+│   └── app.py                   # Flask application
+├── train.py                     # Script training semua model
 ├── requirements.txt
 ├── Procfile
 └── README.md
@@ -88,7 +102,7 @@ windpred/
 
 | | |
 |---|---|
-| **Demo Aplikasi** | [ URL deploy .my.id ] |
+| **Demo Aplikasi** | [ URL deploy ] |
 | **Laporan PDF** | [ Link Google Classroom ] |
 | **Video YouTube** | [ Link YouTube ] |
 
