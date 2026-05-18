@@ -40,13 +40,13 @@ Aplikasi ini menggunakan dua sumber data:
 
 ## 🤖 Algoritma & Hasil
 
-| Algoritma | Tipe | MAE ↓ | RMSE ↓ | R² ↑ | Evaluasi |
-|---|---|---|---|---|---|
-| Linear Regression | Supervised Regression | 0.6724 | 0.8685 | -0.1851 | Perlu Tuning |
-| **ANN (TensorFlow)** ⭐ | Supervised Regression | **0.6065** | **0.7864** | **0.0284** | **Terbaik** |
-| RNN/LSTM | Supervised Sequential | 0.6367 | 0.8318 | -0.0758 | Perlu Tuning |
-| Backpropagation (NumPy) | Supervised Regression | 0.6307 | 0.7895 | 0.0207 | Normal |
-| K-Means Clustering | Unsupervised | — | — | Silhouette: 0.3941 (K=3) | — |
+| Algoritma | Tipe | MAE ↓ | RMSE ↓ | R² ↑ | MAPE | Evaluasi |
+|---|---|---|---|---|---|---|
+| Linear Regression | Supervised Regression | 0.6724 | 0.8685 | -0.1851 | — | Perlu Tuning |
+| **ANN (TensorFlow)** ⭐ | Supervised Regression | **0.5941** | **0.7445** | **0.1292** | — | **Terbaik** |
+| RNN/LSTM | Supervised Sequential | 0.7446 | 0.9043 | -0.2717 | 43.26% | Perlu Tuning |
+| Backpropagation (NumPy) | Supervised Regression | 0.6307 | 0.7895 | 0.0207 | — | Normal |
+| K-Means Clustering | Unsupervised | — | — | — | — | Sil: 0.3941 (K=3) |
 
 > Model terbaik: **ANN** berdasarkan MAE, RMSE, dan R² tertinggi.  
 > K-Means menghasilkan K=3 optimal (Angin Tenang, Angin Ringan, Angin Sedang) berdasarkan Silhouette Score — data Stasiun Klimatologi Jawa Barat tidak memiliki cluster angin kencang yang signifikan secara statistik.
@@ -113,9 +113,10 @@ windpred/
 
 | | |
 |---|---|
-| **Demo Aplikasi** | [ URL deploy ] |
+| **Demo Aplikasi** | [https://www.windpred.my.id/](https://www.windpred.my.id/) |
+| **GitHub Repository** | [https://github.com/Alnazh/wind-prediction-app](https://github.com/Alnazh/wind-prediction-app) |
 | **Laporan PDF** | [ Link Google Classroom ] |
-| **Video YouTube** | [ Link YouTube ] |
+| **Video YouTube** | [https://youtu.be/RL8CHTALN0Q](https://youtu.be/RL8CHTALN0Q) |
 
 ---
 
