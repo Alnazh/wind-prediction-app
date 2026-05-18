@@ -115,7 +115,7 @@ windpred/
 |---|---|
 | **Demo Aplikasi** | [https://www.windpred.my.id/](https://www.windpred.my.id/) |
 | **GitHub Repository** | [https://github.com/Alnazh/wind-prediction-app](https://github.com/Alnazh/wind-prediction-app) |
-| **Laporan PDF** | [ Link Google Classroom ] |
+| **Laporan PDF** | [https://drive.google.com/drive/folders/1y7d2fWDMdYPK6v9h1ZO9VhaTTCwHtOkG?usp=sharing](https://drive.google.com/drive/folders/1y7d2fWDMdYPK6v9h1ZO9VhaTTCwHtOkG?usp=sharing) |
 | **Video YouTube** | [https://youtu.be/RL8CHTALN0Q](https://youtu.be/RL8CHTALN0Q) |
 
 ---
