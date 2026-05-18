@@ -57,7 +57,7 @@ Aplikasi ini menggunakan dua sumber data:
 
 ```bash
 # 1. Clone repository
-git clone https://github.com/Alnazh/windpred.git
+git clone https://github.com/Alnazh/wind-prediction-app
 cd windpred
 
 # 2. Install dependensi
